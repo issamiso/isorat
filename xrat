@@ -1,0 +1,18 @@
+# xrat 
+if [ ! -d /data/data/com.termux/files/usr/etc/isorat ]
+then
+	echo "Error data"
+	exit
+fi
+
+cd /data/data/com.termux/files/usr/etc/isorat && python3 xrat.py
+
+
+
+
+
+
+
+
+
+

